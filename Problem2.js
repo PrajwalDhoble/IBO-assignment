@@ -29,55 +29,50 @@ const listOfProducts = [{
     productName: "TV",
     quantity: 10,
     description: "television"
-  },
-  {
+},
+{
     productName: "AC",
     quantity: 5,
     description: "air conditioner"
-  },
-  {
+},
+{
     productName: "TV",
     quantity: 10,
     description: "television"
-  },
-  {
+},
+{
     productName: "AC",
     quantity: 5,
     description: "air conditioner"
-  },
-  {
+},
+{
     productName: "FAN",
     quantity: 10,
     description: "Ceiling Fan"
-  }
+}
 ];
 
 
-function getUniqueProductCount2(listOfProducts){
+function getUniqueProductCount2(listOfProducts) {
 
     let arr1 = [...new Set(listOfProducts.map(e => e.productName))];
     let arr2 = [];
-    
-    for(let i=0; i<arr1.length; i++)
-    {
+
+    for (let i = 0; i < arr1.length; i++) {
         let obj = {}
-        for(let j=0; j<listOfProducts.length; j++)
-        {
-          if(arr1[i] == listOfProducts[j].productName)
-          {
-            if(Object.keys(obj).length == 0)
-            {
-                obj = listOfProducts[j];
+        for (let j = 0; j < listOfProducts.length; j++) {
+            if (arr1[i] == listOfProducts[j].productName) {
+                if (Object.keys(obj).length == 0) {
+                    obj = listOfProducts[j];
+                }
+                else {
+                    obj.quantity += listOfProducts[j].quantity
+                }
             }
-            else
-            {
-                obj.quantity += listOfProducts[j].quantity
-            }
-         }
-      }
-       arr2.push(obj);
+        }
+        arr2.push(obj);
     }
     console.log(arr2)
-    }
-    
-    getUniqueProductCount2(listOfProducts)
+}
+
+getUniqueProductCount2(listOfProducts)
